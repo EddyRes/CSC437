@@ -1,0 +1,67 @@
+body {
+  background-color: var(--color-background-page);
+  color: var(--color-text);
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+/* Top navigation bar */
+nav {
+  background-color: var(--color-background-header);
+  padding: 16px 24px;
+  margin-bottom: 24px;
+}
+
+nav a {
+  color: var(--color-text-inverted);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Main content container */
+main {
+  background-color: rgb(255 255 255);
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 0 auto 24px auto;
+  max-width: 800px;
+}
+
+/* Headings */
+h1 {
+  color: var(--color-accent);
+  margin-top: 0;
+}
+
+h2 {
+  color: var(--color-accent);
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: 6px;
+  margin-top: 24px;
+}
+
+/* Links */
+a {
+  color: var(--color-link);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Lists */
+ul {
+  padding-left: 24px;
+}
+
+li {
+  margin-bottom: 6px;
+}
+
+/* Paragraph spacing */
+p {
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
