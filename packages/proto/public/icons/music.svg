@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <defs>
+
+<!-- Genre icon -->
+<symbol id="icon-genre" viewBox="0 0 24 24">
+  <path d="M12 2l4 8H8l4-8zm0 20c-4.42 0-8-1.79-8-4v-2h16v2c0 2.21-3.58 4-8 4z"></path>
+</symbol>
+
+<!-- Playlist icon -->
+<symbol id="icon-playlist" viewBox="0 0 24 24">
+  <path d="M3 10h14v2H3v-2zm0-4h18v2H3V6zm0 8h10v2H3v-2zm14 0v4l5-2-5-2z"></path>
+</symbol>
+
+<!-- Listener icon -->
+<symbol id="icon-listener" viewBox="0 0 24 24">
+  <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-4 0-8 2-8 5v3h16v-3c0-3-4-5-8-5z"></path>
+</symbol>
+
+    <!-- Song icon -->
+    <symbol id="icon-song" viewBox="0 0 24 24">
+      <path d="M9 3v12.26A3 3 0 1 0 11 18V7h6V3H9z"/>
+    </symbol>
+
+    <!-- Artist icon -->
+    <symbol id="icon-artist" viewBox="0 0 24 24">
+      <path d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm0 2c-3.33 0-10 1.67-10 5v3h20v-3c0-3.33-6.67-5-10-5z"/>
+    </symbol>
+
+    <!-- Album icon -->
+    <symbol id="icon-album" viewBox="0 0 24 24">
+      <path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm0 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/>
+    </symbol>
+
+  </defs>
+</svg>
