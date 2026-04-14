@@ -1,7 +1,7 @@
 body {
   background-color: var(--color-background-page);
   color: var(--color-text);
-  font-family: Arial, sans-serif;
+  font-family: "Roboto", Arial, sans-serif;
   margin: 0;
 }
 
@@ -33,6 +33,8 @@ main {
 h1 {
   color: var(--color-accent);
   margin-top: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 2.2rem;
 }
 
 h2 {
@@ -40,6 +42,8 @@ h2 {
   border-bottom: 2px solid var(--color-border);
   padding-bottom: 6px;
   margin-top: 24px;
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
 }
 
 /* Links */
@@ -64,4 +68,19 @@ li {
 p {
   line-height: 1.6;
   margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+svg.icon {
+  display: inline-block;
+  height: 1em;
+  width: 1em;
+  vertical-align: -0.1em;
+  fill: currentColor;
+  margin-left: 8px;
+}
+
+li svg.icon {
+  margin-right: 6px;
+  margin-left: 0;
 }
