@@ -1,36 +1,44 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8" />
   <title>Bad Guy</title>
+
+  <link rel="stylesheet" href="/styles/reset.css">
   <link rel="stylesheet" href="/styles/tokens.css">
   <link rel="stylesheet" href="/styles/page.css">
 </head>
 <body>
-  <nav>
-    <a href="../index.html">Home</a>
-  </nav>
+  <header class="site-header">
+    <div class="site-brand">
+      <h1>Moogle <svg class="icon"><use href="/icons/music.svg#icon-song"></use></svg></h1>
+      <p class="page-tagline">Music discovery prototype</p>
+    </div>
+    <nav class="site-nav">
+      <a href="../index.html">Home</a>
+      <a href="../playlists/chill-hits.html">Playlist</a>
+      <a href="../listeners/alex.html">Listener</a>
+    </nav>
+  </header>
 
-  <h1>Bad Guy</h1>
+  <main class="page-layout">
+    <section class="page-card">
+      <h2>Bad Guy</h2>
 
-  <p><strong>Artist:</strong>
-    <a href="../artists/billie-eilish.html">Billie Eilish</a>
-  </p>
+      <p><strong>Artist:</strong> <a href="../artists/billie-eilish.html">Billie Eilish</a></p>
+      <p><strong>Album:</strong> <a href="../albums/when-we-all-fall-asleep.html">When We All Fall Asleep, Where Do We Go?</a></p>
+      <p><strong>Genre:</strong> <a href="../genres/electropop.html">Electropop</a></p>
+      <p><strong>Duration:</strong> 3:14</p>
+      <p><strong>Release Year:</strong> 2019</p>
 
-  <p><strong>Album:</strong>
-    <a href="../albums/when-we-all-fall-asleep.html">When We All Fall Asleep, Where Do We Go?</a>
-  </p>
-
-  <p><strong>Genre:</strong>
-    <a href="../genres/electropop.html">Electropop</a>
-  </p>
-
-  <p><strong>Duration:</strong> 3:14</p>
-  <p><strong>Release Year:</strong> 2019</p>
-
-  <h2>In Playlists</h2>
-  <ul>
-    <li><a href="../playlists/chill-hits.html">Chill Hits</a></li>
-  </ul>
+      <h2>In Playlists</h2>
+      <ul class="item-list">
+        <li>
+          <svg class="icon"><use href="/icons/music.svg#icon-playlist"></use></svg>
+          <a href="../playlists/chill-hits.html">Chill Hits</a>
+        </li>
+      </ul>
+    </section>
+  </main>
 </body>
 </html>

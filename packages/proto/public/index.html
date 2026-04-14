@@ -8,68 +8,93 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   
+  <link rel="stylesheet" href="/styles/reset.css">
   <link rel="stylesheet" href="/styles/tokens.css">
   <link rel="stylesheet" href="/styles/page.css">
 </head>
 <body>
-  <nav>
-    <a href="./index.html">Home</a>
-  </nav>
-
-  <main>
+  <header class="site-header">
+  <div class="site-brand">
     <h1>
-  Moogle
-  <svg class="icon">
-    <use href="/icons/music.svg#icon-song"></use>
-  </svg>
-</h1>
+      Moogle
+      <svg class="icon" aria-hidden="true">
+        <use href="/icons/music.svg#icon-song"></use>
+      </svg>
+    </h1>
+    <p class="page-tagline">Get In Tune</p>
+  </div>
 
+  <nav class="site-nav">
+    <a href="./index.html">Home</a>
+    <a href="playlists/chill-hits.html">Playlist</a>
+    <a href="listeners/alex.html">Listener</a>
+  </nav>
+</header>
+
+  <main class="home-grid">
+  <section class="intro-card">
+    <h2>Welcome</h2>
     <p>Welcome to Moogle. Explore songs, artists, albums, genres, playlists, and listeners.</p>
+  </section>
 
+  <section class="songs-card">
     <h2>
-  Songs
-  <svg class="icon">
-    <use href="/icons/music.svg#icon-song"></use>
-  </svg>
-</h2>
-    <ul>
+      Songs
+      <svg class="icon" aria-hidden="true">
+        <use href="/icons/music.svg#icon-song"></use>
+      </svg>
+    </h2>
+    <ul class="item-list">
       <li><a href="songs/blinding-lights.html">Blinding Lights</a></li>
       <li><a href="songs/bad-guy.html">Bad Guy</a></li>
       <li><a href="songs/yellow.html">Yellow</a></li>
     </ul>
+  </section>
 
+  <section class="explore-card">
     <h2>
-  Explore More
-  <svg class="icon">
-    <use href="/icons/music.svg#icon-artist"></use>
-  </svg>
-</h2>
-    <ul>
+      Explore More
+      <svg class="icon" aria-hidden="true">
+        <use href="/icons/music.svg#icon-artist"></use>
+      </svg>
+    </h2>
+    <ul class="item-list">
   <li>
-    <svg class="icon"><use href="/icons/music.svg#icon-artist"></use></svg>
-    <a href="artists/the-weeknd.html">Artists</a>
+    <svg class="icon" aria-hidden="true">
+      <use href="/icons/music.svg#icon-artist"></use>
+    </svg>
+    <a href="artists/index.html">Artists</a>
   </li>
 
   <li>
-    <svg class="icon"><use href="/icons/music.svg#icon-album"></use></svg>
-    <a href="albums/after-hours.html">Albums</a>
+    <svg class="icon" aria-hidden="true">
+      <use href="/icons/music.svg#icon-album"></use>
+    </svg>
+    <a href="albums/index.html">Albums</a>
   </li>
 
   <li>
-    <svg class="icon"><use href="/icons/music.svg#icon-genre"></use></svg>
-    <a href="genres/synth-pop.html">Genres</a>
+    <svg class="icon" aria-hidden="true">
+      <use href="/icons/music.svg#icon-genre"></use>
+    </svg>
+    <a href="genres/index.html">Genres</a>
   </li>
 
   <li>
-    <svg class="icon"><use href="/icons/music.svg#icon-playlist"></use></svg>
+    <svg class="icon" aria-hidden="true">
+      <use href="/icons/music.svg#icon-playlist"></use>
+    </svg>
     <a href="playlists/chill-hits.html">Playlists</a>
   </li>
 
   <li>
-    <svg class="icon"><use href="/icons/music.svg#icon-listener"></use></svg>
+    <svg class="icon" aria-hidden="true">
+      <use href="/icons/music.svg#icon-listener"></use>
+    </svg>
     <a href="listeners/alex.html">Listeners</a>
   </li>
 </ul>
-  </main>
+  </section>
+</main>
 </body>
 </html>

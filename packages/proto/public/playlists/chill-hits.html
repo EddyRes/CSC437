@@ -1,29 +1,39 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8" />
   <title>Chill Hits</title>
+
+  <link rel="stylesheet" href="/styles/reset.css">
   <link rel="stylesheet" href="/styles/tokens.css">
   <link rel="stylesheet" href="/styles/page.css">
 </head>
 <body>
-  <nav>
-    <a href="../index.html">Home</a>
-  </nav>
+  <header class="site-header">
+    <div class="site-brand">
+      <h1>Moogle <svg class="icon"><use href="/icons/music.svg#icon-song"></use></svg></h1>
+      <p class="page-tagline">Music discovery prototype</p>
+    </div>
+    <nav class="site-nav">
+      <a href="../index.html">Home</a>
+      <a href="../playlists/chill-hits.html">Playlist</a>
+      <a href="../listeners/alex.html">Listener</a>
+    </nav>
+  </header>
 
-  <h1>Chill Hits</h1>
+  <main class="page-layout">
+    <section class="page-card">
+      <h2>Chill Hits</h2>
 
-  <p><strong>Created by:</strong>
-    <a href="../listeners/alex.html">Alex</a>
-  </p>
+      <p><strong>Created by:</strong> <a href="../listeners/alex.html">Alex</a></p>
 
-  <p>A playlist of popular songs with a relaxed vibe.</p>
-
-  <h2>Songs</h2>
-  <ul>
-    <li><a href="../songs/blinding-lights.html">Blinding Lights</a></li>
-    <li><a href="../songs/bad-guy.html">Bad Guy</a></li>
-    <li><a href="../songs/yellow.html">Yellow</a></li>
-  </ul>
+      <h2>Songs</h2>
+      <ul class="item-list">
+        <li><svg class="icon"><use href="/icons/music.svg#icon-song"></use></svg>
+          <a href="../songs/blinding-lights.html">Blinding Lights</a>
+        </li>
+      </ul>
+    </section>
+  </main>
 </body>
 </html>

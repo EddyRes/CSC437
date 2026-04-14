@@ -1,28 +1,47 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8" />
   <title>Billie Eilish</title>
+
+  <link rel="stylesheet" href="/styles/reset.css">
   <link rel="stylesheet" href="/styles/tokens.css">
   <link rel="stylesheet" href="/styles/page.css">
 </head>
 <body>
-  <nav>
-    <a href="../index.html">Home</a>
-  </nav>
+  <header class="site-header">
+    <div class="site-brand">
+      <h1>Moogle <svg class="icon"><use href="/icons/music.svg#icon-song"></use></svg></h1>
+      <p class="page-tagline">Music discovery prototype</p>
+    </div>
 
-  <h1>Billie Eilish</h1>
+    <nav class="site-nav">
+      <a href="../index.html">Home</a>
+      <a href="../playlists/chill-hits.html">Playlist</a>
+      <a href="../listeners/alex.html">Listener</a>
+    </nav>
+  </header>
 
-  <p>American singer and songwriter known for electropop music.</p>
+  <main class="page-layout">
+    <section class="page-card">
+      <h2>Billie Eilish</h2>
 
-  <h2>Songs</h2>
-  <ul>
-    <li><a href="../songs/bad-guy.html">Bad Guy</a></li>
-  </ul>
+      <p>American singer known for electropop music.</p>
 
-  <h2>Albums</h2>
-  <ul>
-    <li><a href="../albums/when-we-all-fall-asleep.html">When We All Fall Asleep, Where Do We Go?</a></li>
-  </ul>
+      <h2>Songs</h2>
+      <ul class="item-list">
+        <li><svg class="icon"><use href="/icons/music.svg#icon-song"></use></svg>
+          <a href="../songs/bad-guy.html">Bad Guy</a>
+        </li>
+      </ul>
+
+      <h2>Albums</h2>
+      <ul class="item-list">
+        <li><svg class="icon"><use href="/icons/music.svg#icon-album"></use></svg>
+          <a href="../albums/when-we-all-fall-asleep.html">When We All Fall Asleep, Where Do We Go?</a>
+        </li>
+      </ul>
+    </section>
+  </main>
 </body>
 </html>

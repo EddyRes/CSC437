@@ -1,28 +1,46 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8" />
   <title>The Weeknd</title>
+
+  <link rel="stylesheet" href="/styles/reset.css">
   <link rel="stylesheet" href="/styles/tokens.css">
   <link rel="stylesheet" href="/styles/page.css">
 </head>
 <body>
-  <nav>
-    <a href="../index.html">Home</a>
-  </nav>
+  <header class="site-header">
+    <div class="site-brand">
+      <h1>Moogle <svg class="icon"><use href="/icons/music.svg#icon-song"></use></svg></h1>
+      <p class="page-tagline">Music discovery prototype</p>
+    </div>
+    <nav class="site-nav">
+      <a href="../index.html">Home</a>
+      <a href="../playlists/chill-hits.html">Playlist</a>
+      <a href="../listeners/alex.html">Listener</a>
+    </nav>
+  </header>
 
-  <h1>The Weeknd</h1>
+  <main class="page-layout">
+    <section class="page-card">
+      <h2>The Weeknd</h2>
 
-  <p>Canadian artist known for pop and R&B music.</p>
+      <p>Canadian artist known for pop and R&B music.</p>
 
-  <h2>Songs</h2>
-  <ul>
-    <li><a href="../songs/blinding-lights.html">Blinding Lights</a></li>
-  </ul>
+      <h2>Songs</h2>
+      <ul class="item-list">
+        <li><svg class="icon"><use href="/icons/music.svg#icon-song"></use></svg>
+          <a href="../songs/blinding-lights.html">Blinding Lights</a>
+        </li>
+      </ul>
 
-  <h2>Albums</h2>
-  <ul>
-    <li><a href="../albums/after-hours.html">After Hours</a></li>
-  </ul>
+      <h2>Albums</h2>
+      <ul class="item-list">
+        <li><svg class="icon"><use href="/icons/music.svg#icon-album"></use></svg>
+          <a href="../albums/after-hours.html">After Hours</a>
+        </li>
+      </ul>
+    </section>
+  </main>
 </body>
 </html>

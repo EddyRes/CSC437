@@ -1,23 +1,40 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8" />
   <title>Electropop</title>
+
+  <link rel="stylesheet" href="/styles/reset.css">
   <link rel="stylesheet" href="/styles/tokens.css">
   <link rel="stylesheet" href="/styles/page.css">
 </head>
 <body>
-  <nav>
-    <a href="../index.html">Home</a>
-  </nav>
+  <header class="site-header">
+    <div class="site-brand">
+      <h1>Moogle <svg class="icon"><use href="/icons/music.svg#icon-song"></use></svg></h1>
+      <p class="page-tagline">Music discovery prototype</p>
+    </div>
 
-  <h1>Electropop</h1>
+    <nav class="site-nav">
+      <a href="../index.html">Home</a>
+      <a href="../playlists/chill-hits.html">Playlist</a>
+      <a href="../listeners/alex.html">Listener</a>
+    </nav>
+  </header>
 
-  <p>A genre combining electronic music with pop elements.</p>
+  <main class="page-layout">
+    <section class="page-card">
+      <h2>Electropop</h2>
 
-  <h2>Songs</h2>
-  <ul>
-    <li><a href="../songs/bad-guy.html">Bad Guy</a></li>
-  </ul>
+      <p>A genre combining electronic and pop music.</p>
+
+      <h2>Songs</h2>
+      <ul class="item-list">
+        <li><svg class="icon"><use href="/icons/music.svg#icon-song"></use></svg>
+          <a href="../songs/bad-guy.html">Bad Guy</a>
+        </li>
+      </ul>
+    </section>
+  </main>
 </body>
 </html>

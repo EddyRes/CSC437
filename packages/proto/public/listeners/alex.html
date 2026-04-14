@@ -1,32 +1,39 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8" />
   <title>Alex</title>
+
+  <link rel="stylesheet" href="/styles/reset.css">
   <link rel="stylesheet" href="/styles/tokens.css">
   <link rel="stylesheet" href="/styles/page.css">
 </head>
 <body>
-  <nav>
-    <a href="../index.html">Home</a>
-  </nav>
+  <header class="site-header">
+    <div class="site-brand">
+      <h1>Moogle <svg class="icon"><use href="/icons/music.svg#icon-song"></use></svg></h1>
+      <p class="page-tagline">Music discovery prototype</p>
+    </div>
+    <nav class="site-nav">
+      <a href="../index.html">Home</a>
+      <a href="../playlists/chill-hits.html">Playlist</a>
+      <a href="../listeners/alex.html">Listener</a>
+    </nav>
+  </header>
 
-  <h1>Alex</h1>
+  <main class="page-layout">
+    <section class="page-card">
+      <h2>Alex</h2>
 
-  <p><strong>Favorite Genre:</strong>
-    <a href="../genres/synth-pop.html">Synth-pop</a>
-  </p>
+      <p><strong>Favorite Genre:</strong> <a href="../genres/synth-pop.html">Synth-pop</a></p>
 
-  <h2>Playlists Created</h2>
-  <ul>
-    <li><a href="../playlists/chill-hits.html">Chill Hits</a></li>
-  </ul>
-
-  <h2>Songs Listened To</h2>
-  <ul>
-    <li><a href="../songs/blinding-lights.html">Blinding Lights</a></li>
-    <li><a href="../songs/bad-guy.html">Bad Guy</a></li>
-    <li><a href="../songs/yellow.html">Yellow</a></li>
-  </ul>
+      <h2>Playlists</h2>
+      <ul class="item-list">
+        <li><svg class="icon"><use href="/icons/music.svg#icon-playlist"></use></svg>
+          <a href="../playlists/chill-hits.html">Chill Hits</a>
+        </li>
+      </ul>
+    </section>
+  </main>
 </body>
 </html>
