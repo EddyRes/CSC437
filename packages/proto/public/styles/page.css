@@ -204,3 +204,15 @@ main.page-layout {
     padding: 16px;
   }
 }
+
+.mode-toggle {
+  color: var(--color-text-inverted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+}
+
+.mode-toggle input {
+  margin: 0;
+}
