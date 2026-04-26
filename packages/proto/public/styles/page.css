@@ -216,3 +216,8 @@ main.page-layout {
 .mode-toggle input {
   margin: 0;
 }
+
+.song-list {
+  display: grid;
+  gap: 16px;
+}

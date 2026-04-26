@@ -49,11 +49,36 @@
         <use href="/icons/music.svg#icon-song"></use>
       </svg>
     </h2>
-    <ul class="item-list">
-      <li><a href="songs/blinding-lights.html">Blinding Lights</a></li>
-      <li><a href="songs/bad-guy.html">Bad Guy</a></li>
-      <li><a href="songs/yellow.html">Yellow</a></li>
-    </ul>
+    <div class="song-list">
+
+  <moogle-song>
+    <span slot="title">Blinding Lights</span>
+    <a slot="artist" href="artists/the-weeknd.html">The Weeknd</a>
+    <a slot="album" href="albums/after-hours.html">After Hours</a>
+    <a slot="genre" href="genres/synth-pop.html">Synth-pop</a>
+    <span slot="duration">3:20</span>
+    <span slot="year">2019</span>
+  </moogle-song>
+
+  <moogle-song>
+    <span slot="title">Bad Guy</span>
+    <a slot="artist" href="artists/billie-eilish.html">Billie Eilish</a>
+    <a slot="album" href="albums/when-we-all-fall-asleep.html">When We All Fall Asleep, Where Do We Go?</a>
+    <a slot="genre" href="genres/electropop.html">Electropop</a>
+    <span slot="duration">3:14</span>
+    <span slot="year">2019</span>
+  </moogle-song>
+
+  <moogle-song>
+    <span slot="title">Yellow</span>
+    <a slot="artist" href="artists/coldplay.html">Coldplay</a>
+    <a slot="album" href="albums/parachutes.html">Parachutes</a>
+    <a slot="genre" href="genres/alternative-rock.html">Alternative Rock</a>
+    <span slot="duration">4:29</span>
+    <span slot="year">2000</span>
+  </moogle-song>
+
+</div>
   </section>
 
   <section class="explore-card">
@@ -101,6 +126,14 @@
 </ul>
   </section>
 </main>
+<script type="module">
+  import { define } from "https://unpkg.com/@unbndl/html?module";
+  import { MoogleSongElement } from "/js/moogle-song.js";
+
+  define({
+    "moogle-song": MoogleSongElement
+  });
+</script>
 <script src="/scripts/darkmode.js"></script>
 </body>
 </html>
