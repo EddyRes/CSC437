@@ -40,8 +40,8 @@ export class MoogleSongElement extends HTMLElement {
   constructor() {
     super();
     shadow(this)
-      .template(MoogleSongElement.template)
-      .styles(MoogleSongElement.styles);
+  .template(MoogleSongElement.template)
+  .styles(...MoogleSongElement.styles);
   }
 
   static styles = [
@@ -53,12 +53,12 @@ export class MoogleSongElement extends HTMLElement {
     }
 
     .song-card {
-      background-color: rgb(248 251 255);
-      border: 15px solid var(--color-border);
-      border-radius: 10px;
-      padding: 16px;
-      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
-    }
+  background-color: rgb(255 255 255);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.05);
+}
 
     .song-title {
       color: var(--color-accent);

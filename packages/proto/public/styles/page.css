@@ -217,7 +217,4 @@ main.page-layout {
   margin: 0;
 }
 
-.song-list {
-  display: grid;
-  gap: 16px;
-}
+
