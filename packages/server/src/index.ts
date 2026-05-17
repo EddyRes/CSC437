@@ -1,3 +1,4 @@
+import { connect } from "./services/mongo.js";
 import express, { Request, Response } from "express";
 import Songs from "./services/song-svc.js";
 
@@ -5,6 +6,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 const staticDir = process.env.STATIC || "public";
 
+connect("moogle");
 
 app.use(express.static(staticDir));
 
@@ -17,22 +19,25 @@ app.get("/hello", (req: Request, res: Response) => {
 });
 
 app.get("/api/songs", (req: Request, res: Response) => {
-  const data = Songs.getAll();
-
-  res.send({
-    songs: data
-  });
+  Songs.index()
+    .then((list) => {
+      res.send({
+        count: list.length,
+        songs: list
+      });
+    })
+    .catch((err) => res.status(500).send(err));
 });
 
 app.get("/api/songs/:id", (req: Request, res: Response) => {
   const id = req.params.id as string;
-  const data = Songs.get(id);
 
-  if (data) {
-    res.send(data);
-  } else {
-    res.status(404).send();
-  }
+  Songs.get(id)
+    .then((song) => {
+      if (!song) res.status(404).send();
+      else res.send(song);
+    })
+    .catch((err) => res.status(500).send(err));
 });
 
 // Start server
