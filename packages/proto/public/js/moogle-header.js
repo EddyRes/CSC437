@@ -1,0 +1,183 @@
+import { css, html, shadow } from "@unbndl/html";
+import { createViewModel } from "@unbndl/view";
+import { fromAuth } from "@unbndl/auth";
+import reset from "/js/styles/reset.css.js";
+
+export class MoogleHeaderElement extends HTMLElement {
+  viewModel = createViewModel({
+    authenticated: false,
+    username: ""
+  }).with(fromAuth(this), "authenticated", "username");
+
+  view = html`
+    <header class="site-header">
+      <div class="site-brand">
+        <h1>
+          Moogle
+          <svg class="icon" aria-hidden="true">
+            <use href="/icons/music.svg#icon-song"></use>
+          </svg>
+        </h1>
+
+        <p class="page-tagline">Get In Tune</p>
+      </div>
+
+      <nav class="site-nav">
+        <a href="/index.html">Home</a>
+        <a href="/playlists/chill-hits.html">Playlist</a>
+        <a href="/listeners/alex.html">Listener</a>
+      </nav>
+
+      <div class="header-actions">
+        <label class="mode-toggle">
+          <input id="darkModeToggle" type="checkbox" autocomplete="off" />
+          Dark mode
+        </label>
+
+        ${($) =>
+          $.authenticated
+            ? html`
+                <button class="auth-button" type="button">
+                  Sign Out
+                </button>
+              `
+            : html`
+                <a class="auth-link" href="/login.html">
+                  Login
+                </a>
+              `}
+      </div>
+    </header>
+
+    <section class="welcome-user">
+      <p>
+        Hello,
+        <strong>${($) => $.username || "anonymous"}</strong>
+      </p>
+    </section>
+  `;
+
+  constructor() {
+    super();
+
+    shadow(this)
+      .styles(reset.styles, MoogleHeaderElement.styles)
+      .replace(this.viewModel.render(this.view));
+
+    this.shadowRoot.addEventListener("click", (event) => {
+      const target = event.target;
+
+      if (
+        target instanceof HTMLElement &&
+        target.classList.contains("auth-button")
+      ) {
+        this.signout();
+      }
+    });
+  }
+
+  signout() {
+  localStorage.removeItem("auth:token");
+  sessionStorage.removeItem("auth:token");
+
+  const customEvent = new CustomEvent("auth:message", {
+    bubbles: true,
+    composed: true,
+    detail: ["auth/signout"]
+  });
+
+  this.dispatchEvent(customEvent);
+
+  window.location.href = "/index.html";
+}
+
+  static styles = css`
+    .site-header {
+      background-color: var(--color-background-header);
+      color: var(--color-text-inverted);
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      gap: 24px;
+      padding: 20px 24px;
+    }
+
+    .site-brand h1 {
+      color: var(--color-text-inverted);
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-size: 2.2rem;
+    }
+
+    .page-tagline {
+      color: var(--color-text-inverted);
+      margin-top: 4px;
+      font-size: 0.95rem;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .site-nav a {
+      color: var(--color-text-inverted);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .mode-toggle {
+      color: var(--color-text-inverted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.9rem;
+    }
+
+    .mode-toggle input {
+      margin: 0;
+    }
+
+    .auth-button,
+    .auth-link {
+      background-color: transparent;
+      border: 1px solid var(--color-text-inverted);
+      color: var(--color-text-inverted);
+
+      border-radius: 8px;
+      padding: 8px 12px;
+
+      font: inherit;
+      font-weight: bold;
+      text-decoration: none;
+
+      cursor: pointer;
+    }
+
+    .welcome-user {
+      text-align: center;
+      padding: 12px 0 0;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--color-text);
+    }
+
+    svg.icon {
+      display: inline-block;
+      height: 0.75em;
+      width: 0.75em;
+      vertical-align: -0.1em;
+      fill: currentColor;
+      margin-left: 6px;
+    }
+  `;
+}

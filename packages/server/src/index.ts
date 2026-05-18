@@ -1,6 +1,7 @@
 import { connect } from "./services/mongo.js";
 import express, { Request, Response } from "express";
 import Songs from "./services/song-svc.js";
+import auth, { authenticateUser } from "./routes/auth.js";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -9,9 +10,10 @@ const staticDir = process.env.STATIC || "public";
 connect("moogle");
 
 app.use(express.static(staticDir));
-
-
 app.use(express.json());
+
+app.use("/auth", auth);
+app.use("/api/songs", authenticateUser);
 
 
 app.get("/hello", (req: Request, res: Response) => {
@@ -38,6 +40,34 @@ app.get("/api/songs/:id", (req: Request, res: Response) => {
       else res.send(song);
     })
     .catch((err) => res.status(500).send(err));
+});
+
+app.post("/api/songs", (req: Request, res: Response) => {
+  const newSong = req.body;
+
+  Songs.create(newSong)
+    .then((song) => res.status(201).json(song))
+    .catch((err) => res.status(500).send(err));
+});
+
+app.put("/api/songs/:id", (req: Request, res: Response) => {
+  const id = req.params.id as string;
+  const updatedSong = req.body;
+
+  Songs.update(id, updatedSong)
+    .then((song) => {
+      if (!song) res.status(404).send();
+      else res.json(song);
+    })
+    .catch((err) => res.status(404).send(err));
+});
+
+app.delete("/api/songs/:id", (req: Request, res: Response) => {
+  const id = req.params.id as string;
+
+  Songs.remove(id)
+    .then(() => res.status(204).end())
+    .catch((err) => res.status(404).send(err));
 });
 
 // Start server
