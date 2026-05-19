@@ -1,0 +1,26 @@
+:root {
+  --color-background-page: rgb(235 245 255);
+  --color-background-header: rgb(20 70 140);
+
+  --color-text: rgb(20 30 50);
+  --color-text-inverted: rgb(255 255 255);
+
+  --color-accent: rgb(25 100 210);
+  --color-link: var(--color-accent);
+
+  --color-border: rgb(150 190 235);
+}
+
+body.dark-mode {
+  --color-background-page: rgb(20, 70, 140);
+  --color-background-header: rgb(15, 52, 104);
+
+  --color-text: rgb(36, 33, 33);
+  --color-text-inverted: rgb(255 255 255);
+
+  --color-accent: rgb(52, 74, 111);
+  --color-link: var(--color-accent);
+
+  --color-border: rgb(60 80 120);
+
+}

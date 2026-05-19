@@ -1,0 +1,23 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "tsc --noEmit"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@unbndl/auth": "^1.0.4",
+    "@unbndl/html": "^1.0.5",
+    "@unbndl/switch": "^1.0.3",
+    "@unbndl/view": "^1.0.5"
+  },
+  "devDependencies": {
+    "vite": "^8.0.13"
+  }
+}

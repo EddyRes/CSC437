@@ -6,6 +6,7 @@
     "dev": "nodemon",
     "build": "npx tsc",
     "start": "npm run build && cross-env STATIC=../proto/public npm run start:node",
+    "start:app": "cross-env STATIC=../app/dist npm run start",
     "start:node": "node dist/index.js",
     "start:proto": "cross-env STATIC=../proto/public npm run start",
     "check": "tsc --noEmit"

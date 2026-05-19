@@ -3,6 +3,9 @@ import express, { Request, Response } from "express";
 import Songs from "./services/song-svc.js";
 import auth, { authenticateUser } from "./routes/auth.js";
 
+import fs from "node:fs/promises";
+import path from "path";
+
 const app = express();
 const port = process.env.PORT || 3000;
 const staticDir = process.env.STATIC || "public";
@@ -68,6 +71,14 @@ app.delete("/api/songs/:id", (req: Request, res: Response) => {
   Songs.remove(id)
     .then(() => res.status(204).end())
     .catch((err) => res.status(404).send(err));
+});
+
+app.use("/app", (req: Request, res: Response) => {
+  const indexHtml = path.resolve(staticDir, "index.html");
+
+  fs.readFile(indexHtml, { encoding: "utf8" }).then((html) =>
+    res.send(html)
+  );
 });
 
 // Start server
