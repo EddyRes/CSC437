@@ -17,14 +17,16 @@
 
 <body>
   <history-provider>
-    <auth-provider redirect="/login.html">
+  <auth-provider redirect="/login.html">
+    <store-provider>
       <article class="page">
         <moogle-header></moogle-header>
 
         <router-switch></router-switch>
       </article>
-    </auth-provider>
-  </history-provider>
+    </store-provider>
+  </auth-provider>
+</history-provider>
 
   <script type="module" src="/src/main.ts"></script>
 </body>

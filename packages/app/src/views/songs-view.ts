@@ -1,73 +1,34 @@
 import { css, html, shadow } from "@unbndl/html";
 import { createViewModel } from "@unbndl/view";
-import { fromAuth } from "@unbndl/auth";
+import { fromStore } from "@unbndl/store";
 
-interface Song {
-  _id: string;
-  title: string;
-  artistName: string;
-  albumName: string;
-  genreName: string;
-  duration: string;
-  year: string;
-}
+import { Song } from "server/models";
+import { Model } from "../model.ts";
 
 interface SongsViewModel {
-  authenticated: boolean;
-  token: string;
-  songs: Song[];
+  songs?: Song[];
 }
 
 export class SongsViewElement extends HTMLElement {
-  viewModel = createViewModel<SongsViewModel>({
-    authenticated: false,
-    token: "",
-    songs: []
-  }).with(fromAuth(this), "authenticated", "token");
+  viewModel = createViewModel<SongsViewModel>({})
+    .with(fromStore<Model>(this), "songs");
 
   constructor() {
     super();
-
-    console.log("SongsViewElement loaded");
 
     shadow(this)
       .styles(SongsViewElement.styles)
       .replace(this.viewModel.render(SongsViewElement.view));
 
-    this.viewModel.createEffect(($) => {
-      if ($.authenticated) {
-        this.hydrate();
-      }
-    });
-  }
-
-  get authorization() {
-    const $ = this.viewModel.toObject();
-
-    if ($.authenticated && $.token) {
-      return { Authorization: `Bearer ${$.token}` };
-    }
-
-    return {};
-  }
-
-  hydrate() {
-    return fetch("/api/songs", {
-      headers: this.authorization
+    setTimeout(() => {
+  this.dispatchEvent(
+    new CustomEvent("store:message", {
+      bubbles: true,
+      composed: true,
+      detail: ["songs/request", {}]
     })
-      .then((response) => {
-        if (response.status !== 200) {
-          throw `HTTP Status ${response.status}`;
-        }
-
-        return response.json();
-      })
-      .then((json) => {
-        this.viewModel.set("songs", json.songs || []);
-      })
-      .catch((error) => {
-        console.log("Could not fetch songs:", error);
-      });
+  );
+});
   }
 
   static view = html<SongsViewModel>`
@@ -76,7 +37,7 @@ export class SongsViewElement extends HTMLElement {
         <h2>Songs View</h2>
 
         ${($) =>
-          $.authenticated
+          $.songs && $.songs.length
             ? html`
                 <div class="song-list">
                   ${$.songs.map(
@@ -94,8 +55,7 @@ export class SongsViewElement extends HTMLElement {
                 </div>
               `
             : html`
-                <p>You must log in to view songs.</p>
-                <p><a href="/login.html">Go to Login</a></p>
+                <p>Loading songs...</p>
               `}
 
         <p class="back-link">

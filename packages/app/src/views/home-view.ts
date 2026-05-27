@@ -1,47 +1,66 @@
 import { css, html, shadow } from "@unbndl/html";
+import { createViewModel } from "@unbndl/view";
+import { fromStore } from "@unbndl/store";
+
+import { Model } from "../model.ts";
+
+interface HomeViewModel {
+  songs?: Model["songs"];
+}
 
 export class HomeViewElement extends HTMLElement {
-  static template = html`
-    <template>
-      <main class="home-grid">
-        <section class="intro-card">
-          <h2>Welcome</h2>
-          <p>
-            Welcome to Moogle. Explore songs, artists, albums, genres, playlists, and listeners.
-          </p>
-        </section>
-
-        <section class="songs-card">
-          <h2>
-            Songs
-            <svg class="icon" aria-hidden="true">
-              <use href="/icons/music.svg#icon-song"></use>
-            </svg>
-          </h2>
-
-          <p>This SPA is now using client-side routing.</p>
-          <p>The next step will connect this view to your protected songs API.</p>
-        </section>
-
-        <section class="explore-card">
-          <h2>Explore More</h2>
-
-          <ul class="item-list">
-            <li><a href="/app">Home</a></li>
-            <li><a href="/app/songs">Songs View</a></li>
-          </ul>
-        </section>
-      </main>
-    </template>
-  `;
+  viewModel = createViewModel<HomeViewModel>({})
+    .with(fromStore<Model>(this), "songs");
 
   constructor() {
     super();
 
     shadow(this)
-      .template(HomeViewElement.template)
-      .styles(HomeViewElement.styles);
+      .styles(HomeViewElement.styles)
+      .replace(this.viewModel.render(HomeViewElement.view));
   }
+
+  static view = html<HomeViewModel>`
+    <main class="home-grid">
+      <section class="intro-card">
+        <h2>Welcome</h2>
+        <p>
+          Welcome to Moogle. Explore songs, artists, albums, genres, playlists, and listeners.
+        </p>
+
+        <p>
+          Songs loaded in store:
+          <strong>${($) => $.songs?.length ?? 0}</strong>
+        </p>
+      </section>
+
+      <section class="songs-card">
+        <h2>
+          Songs
+          <svg class="icon" aria-hidden="true">
+            <use href="/icons/music.svg#icon-song"></use>
+          </svg>
+        </h2>
+
+        <p>
+          View the full songs list on the Songs page.
+        </p>
+
+        <p>
+          <a href="/app/songs">Go to Songs</a>
+        </p>
+      </section>
+
+      <section class="explore-card">
+        <h2>Explore More</h2>
+
+        <ul class="item-list">
+          <li><a href="/app">Home</a></li>
+          <li><a href="/app/songs">Songs View</a></li>
+        </ul>
+      </section>
+    </main>
+  `;
 
   static styles = css`
     .home-grid {
