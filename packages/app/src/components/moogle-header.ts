@@ -29,14 +29,16 @@ export class MoogleHeaderElement extends HTMLElement {
         ${($) =>
           $.authenticated
             ? html`
-                <button class="auth-button" type="button">
+                <button class="auth-button" type="button" data-action="signout">
                   Sign Out
                 </button>
               `
             : html`
-                <a class="auth-link" href="/login.html">
-                  Login
-                </a>
+                <button class="auth-button" type="button" data-action="login">
+ 		  Login
+		</button>
+                  
+                
               `}
       </div>
     </header>
@@ -50,23 +52,28 @@ export class MoogleHeaderElement extends HTMLElement {
   `;
 
   constructor() {
-    super();
+  super();
 
-    shadow(this)
-      .styles(MoogleHeaderElement.styles)
-      .replace(this.viewModel.render(this.view));
+  shadow(this)
+    .styles(MoogleHeaderElement.styles)
+    .replace(this.viewModel.render(this.view));
 
-    this.shadowRoot?.addEventListener("click", (event) => {
-      const target = event.target;
+  this.shadowRoot?.addEventListener("click", (event) => {
+    const target = event.target;
 
-      if (
-        target instanceof HTMLElement &&
-        target.classList.contains("auth-button")
-      ) {
-        this.signout();
-      }
-    });
-  }
+    if (!(target instanceof HTMLElement)) return;
+
+    if (target.closest("[data-action='login']")) {
+      window.location.href = "/login.html";
+      return;
+    }
+
+    if (target.closest("[data-action='signout']")) {
+      this.signout();
+      return;
+    }
+  });
+}
 
   signout() {
     localStorage.removeItem("auth:token");
